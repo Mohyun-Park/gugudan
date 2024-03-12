@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 표 출력</title>
+    <style>
+        /* 표의 테두리 스타일 설정 */
+        table {
+            border-collapse: collapse;
+            border: 2px solid blue; /* 파란색 선으로 테두리 설정 */
+            width: 100%; /* 표의 너비 설정 */
+        }
+
+        /* 표의 셀 스타일 설정 */
+        td {
+            border: 1px solid blue; /* 파란색 선으로 셀의 테두리 설정 */
+            padding: 8px; /* 셀 안의 여백 설정 */
+            text-align: center; /* 셀 안의 텍스트 가운데 정렬 */
+        }
+    </style>
+</head>
+<body>
+    <h2>구구단 표</h2>
+    <table id="gugudan">
+        <!-- 여기에 구구단이 출력될 것입니다. -->
+    </table>
+
+    <script>
+        // 표를 출력할 HTML 요소 선택
+        const tableElement = document.getElementById('gugudan');
+
+        // 표 초기화
+        tableElement.innerHTML = '';
+
+        // 1부터 9까지의 구구단 생성 및 출력
+        for (let i = 1; i <= 9; i++) {
+            // 새로운 행 생성
+            const row = document.createElement('tr');
+
+            for (let j = 1; j <= 9; j++) {
+                // 셀 생성
+                const cell = document.createElement('td');
+                // 셀 내용 설정
+                cell.textContent = `${j} x ${i} = ${i * j}`;
+                console.log(cell.textContent)
+                // 셀을 행에 추가
+                row.appendChild(cell);
+            }
+
+            // 행을 표에 추가
+            tableElement.appendChild(row);
+        }
+    </script>
+</body>
+</html>
